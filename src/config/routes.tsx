@@ -1,6 +1,6 @@
 /**
  * 路由配置 入口
- * @author LiQingSong
+ * 
  */
 
 import React, { lazy, memo, Suspense } from 'react';
@@ -42,6 +42,7 @@ const routes = createUseRoutes([
     component: lazy(() => import('@/pages/404')),
   },
 ]);
+console.log("routes=", routes);
 
 /**
  * 配置框架对应的路由
@@ -50,6 +51,8 @@ const layoutToRoutes = {
   UniversalLayout: pathKeyCreateUseRoutes([routes[0]]),
   UserLayout: pathKeyCreateUseRoutes([routes[1]]),
 };
+
+console.log("layoutToRoutes=", layoutToRoutes);
 
 export const SuspenseLazy = memo(({ children }: { children: React.ReactNode }) => (
   <Suspense fallback={<PageLoading />}>{children}</Suspense>
